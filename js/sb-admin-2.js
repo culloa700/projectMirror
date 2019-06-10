@@ -1,4 +1,6 @@
+ 
 (function($) {
+var calendar;
   "use strict"; // Start of use strict
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
@@ -43,86 +45,61 @@
       scrollTop: ($($anchor.attr('href')).offset().top)
     }, 1000, 'easeInOutExpo');
     e.preventDefault();
-  }); 
-   
-  $('#cardBano').on('click',mostrarModalBano);
-  $('#cardPelo').on('click',mostrarModalPelo);
-  $('#cardUnas').on('click',mostrarModalUnas);
-  $('#cardDientes').on('click',mostrarModalDientes);
-  $('#cardOidos').on('click',mostrarModalOidos);
-  $('#cardDesparacitacion').on('click',mostrarModalDesparacitacion);
-  
-  $('#aceptarBano').on('click',botonBano);
-  
-  document.addEventListener('DOMContentLoaded', function() { //parametrizacion de plugin calendar
-       var calendarEl = document.getElementById('calendar');
+  });   
+  var calendarEl = document.getElementById('calendar');
 
-       var calendar = new FullCalendar.Calendar(calendarEl, {
-         plugins: [ 'dayGrid', 'interaction' ],
-         locale:'es',
-         header:{
-             left:'title',
-             center:'',
-             rigth:'next,prev'
-         },        
-         dateClick: function(info) {                         
-
-                var fun = mostrarModalBano(info.dateStr);
-                console.log(fun);
+var calendar = new FullCalendar.Calendar(calendarEl, {
+  plugins: [ 'dayGrid', 'interaction' ],
+  locale:'es',
+  header:{
+      left:'title',
+      center:'',
+      rigth:'next,prev'
+  },        
+  dateClick:function(info){ 
+      
+        $('#modalNewNote').modal('show'); // muestra el modal donde se asigna la nota        
+        $('#buttonAccept').off('click'); //inizializa el evento click del boton del modal
+        $('#buttonAccept').click(function(){ // evento click del boton aceptar del modal
             
-//            alert('Clicked on: ' + info.dateStr);
-//            alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-//            alert('Current view: ' + info.view.type);
-//            // change the day's background color just for fun
-//            info.dayEl.style.backgroundColor = 'red';
-
-          }
-         
-         
-       });
-
-       calendar.render();
-     });
+            var note = $('#textAreaNote').val(); 
+             
+            calendar.addEvent({ // debe insertar la nota y despues traer el id asignado para poner de id a la nota
+               id: 190,
+               title: note,
+               start: info.dateStr,
+               allDay: true,
+               textColor: '#FFFFFF',
+               color:'#6290A0'
+            });
+            $('#modalNewNote').modal('hide');
+        }); 
+  },
+  eventClick: function(info){ // debe traerse el contenido de la nota y el tipo para mostrar
+//     info.event.remove();
+    console.log(info.event._def.publicId);
+    console.log(calendar.getEventById(190));
+    console.log(info.event._def.title);
+    $('#modalUpdateNote').modal('show');
+    $('#textAreaNoteUpdate').val(info.event._def.title);
+    $('#buttonDelete').off('click');
+    $('#buttonDelete').click(function(){ // evento click del boton aceptar del modal
+        info.event.remove();   
+        $('#modalUpdateNote').modal('hide');
+    }); 
+     
+     
+  }
+});
+calendar.render();
   
-
+$('#modalNewNote').on('hidden.bs.modal', function (e) { // evento que se ejecuta al cerrar el modal
+      $('#textAreaNote').val("");
+      $('#selectType').val(0);
+})
+$('#modalNewNote').on('shown.bs.modal', function (e) { // evento que se ejecuta al cerrar el modal    
+    $('#textAreaNote').trigger('focus');
+})
+ 
 })(jQuery); // End of use strict
-
-function botonBano(){
-   var value = $('#inputBano').val();
-   $('#textBano').text(value);
-   $('#modalBano').modal('hide');
-
-}
-
-function mostrarModalBano(s){
-    
-    $('#modalBano').modal('show');
-    $('#inputBano').text(s);
-    $('#dateBano').datetimepicker();
-}
-
-function mostrarModalPelo(){
-    $('#modalPelo').modal('show');
-    $('#datePelo').datetimepicker();
-}
-
-function mostrarModalUnas(){
-    $('#modalUnas').modal('show');
-    $('#dateUnas').datetimepicker();
-}
-
-function mostrarModalDientes(){
-    $('#modalDientes').modal('show');
-    $('#dateDientes').datetimepicker();
-}
-
-function mostrarModalOidos(){
-    $('#modalOidos').modal('show');
-    $('#dateOidos').datetimepicker();
-}
-
-function mostrarModalDesparacitacion(){
-    $('#modalDesparacitacion').modal('show');
-    $('#dateDesparacitacion').datetimepicker();
-}
 

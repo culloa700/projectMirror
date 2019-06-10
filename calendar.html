@@ -171,37 +171,73 @@
     </div>
   </div>
   
-  <div class="modal fade" id="modalBano" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Baño de tu mascota</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                 <div class="row">
-                  <p class="col-sm-4">Seleccione la fecha</p>
-                  <div class='col-sm-8'>
-                    <div class="form-group">
-                      <div class="input-group date" id="dateBano" data-target-input="nearest">
-                         <input type="text" class="form-control datetimepicker-input" data-target="#dateBano" id="inputBano"/>
-                      <div class="input-group-append" data-target="#dateBano" data-toggle="datetimepicker">
-                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-                 </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary" id="aceptarBano">Aceptar</button>
-                </div>
-              </div>
+   <div class="modal fade" id="modalNewNote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Agregar una nueva nota</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div class="modal-body">
+             <div class="row">
+              <p class="col-sm-4">Nota</p>
+              <textarea class="form-control col-sm-8" rows="5" id="textAreaNote"></textarea>
+             </div>
+             <div class="row" style="margin-top: 10px;">
+                 <p class="col-sm-4">Tipo</p>
+                 <select class="form-control col-sm-8" id="selectType">
+                    <option value="0">Seleccione</option>
+                    <option value="1">Personal</option>
+                    <option value="2">Familiar</option>
+                    <option value="3">Trabajo</option>
+                    <option value="4">Amigos</option>
+                    <option value="5">Pareja</option>
+                 </select>
+             </div>                 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" id="buttonAccept">Aceptar</button>
+            </div>
+          </div>
         </div>
+    </div>     
+   <div class="modal fade" id="modalUpdateNote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Actualizar nota</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <div class="row">
+              <p class="col-sm-4">Nota</p>
+              <textarea class="form-control col-sm-8" rows="5" id="textAreaNoteUpdate"></textarea>
+             </div>
+             <div class="row" style="margin-top: 10px;">
+                 <p class="col-sm-4">Tipo</p>
+                 <select class="form-control col-sm-8" id="selectTypeUpdate">
+                    <option value="0">Seleccione</option>
+                    <option value="1">Personal</option>
+                    <option value="2">Familiar</option>
+                    <option value="3">Trabajo</option>
+                    <option value="4">Amigos</option>
+                    <option value="5">Pareja</option>
+                 </select>
+             </div>                 
+            </div>
+            <div class="modal-footer">                
+              <button type="button" class="btn btn-danger" id="buttonDelete">Eliminar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" id="buttonAcceptUpdate">Aceptar</button>
+            </div>
+          </div>
+        </div>
+    </div>     
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

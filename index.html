@@ -406,7 +406,7 @@
         
 <!--        MODALES-->
         
-        <div class="modal fade" id="modalBano" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modalNewNote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -417,22 +417,23 @@
                 </div>
                 <div class="modal-body">
                  <div class="row">
-                  <p class="col-sm-4">Seleccione la fecha</p>
-                  <div class='col-sm-8'>
-                    <div class="form-group">
-                      <div class="input-group date" id="dateBano" data-target-input="nearest">
-                         <input type="text" class="form-control datetimepicker-input" data-target="#dateBano" id="inputBano"/>
-                      <div class="input-group-append" data-target="#dateBano" data-toggle="datetimepicker">
-                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
+                  <p class="col-sm-4">Nota</p>
+                  <textarea class="form-control col-sm-8" rows="5" id="textAreaNote"></textarea>
                  </div>
+                 <div class="row">
+                     <p class="col-sm-4">Tipo</p>
+                     <select class="form-control col-sm-8" id="exampleFormControlSelect1">
+                        <option>Personal</option>
+                        <option>Familiar</option>
+                        <option>Trabajo</option>
+                        <option>Amigos</option>
+                        <option>Pareja</option>
+                     </select>
+                 </div>                 
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary" id="aceptarBano">Aceptar</button>
+                  <button type="button" class="btn btn-primary" id="buttonAccept">Aceptar</button>
                 </div>
               </div>
             </div>
