@@ -34,21 +34,21 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crea una cuenta!</h1>
               </div>
-              <form class="user">
+              <form onsubmit="return false" class="user" id="formRegister">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombre">
+                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombre" name="nombre">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Apellidos">
+                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Apellidos" name="apellidos">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Correo">
+                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Correo" name="correo">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña">
+                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña" name="contra">
                   </div>
                   <div class="col-sm-6">
                     <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Confirmar contraseña">
@@ -56,15 +56,15 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="inputEstatura" placeholder="Estatura">
+                    <input type="text" class="form-control form-control-user" id="inputEstatura" placeholder="Estatura" name="estatura">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Peso">
+                    <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Peso" name="peso">
                   </div>
                 </div>
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                <button class="btn btn-primary btn-user btn-block" id="buttonRegister">
                   Registrar cuenta
-                </a>
+                </button>
 <!--                <hr>
                 <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
@@ -87,6 +87,8 @@
     </div>
 
   </div>
+    
+    <script src="js/constantes.js"></script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -96,7 +98,8 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+ 
+  <script src="js/login.js"></script>
 
 </body>
 

@@ -101,5 +101,12 @@ $('#modalNewNote').on('shown.bs.modal', function (e) { // evento que se ejecuta 
     $('#textAreaNote').trigger('focus');
 })
  
+ 
+ 
+ $('#buttonRegister').on('click', function(){
+     var form = $('#formRegister').serialize();
+     console.log(form);
+ })
+ 
 })(jQuery); // End of use strict
 
